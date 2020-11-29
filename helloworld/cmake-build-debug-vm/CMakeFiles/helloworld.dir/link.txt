@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/helloworld.dir/main.c.o CMakeFiles/helloworld.dir/src/foo.c.o  -o helloworld 

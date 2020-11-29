@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Block2.dir/client.c.o CMakeFiles/Block2.dir/server.c.o  -o Block2 

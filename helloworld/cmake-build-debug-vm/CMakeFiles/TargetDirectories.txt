@@ -1,0 +1,3 @@
+/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/CMakeFiles/rebuild_cache.dir
+/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/CMakeFiles/helloworld.dir
+/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/CMakeFiles/edit_cache.dir

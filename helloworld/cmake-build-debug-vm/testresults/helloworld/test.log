@@ -1,0 +1,15 @@
+E
+======================================================================
+ERROR: test_compile (rnvs_tb.common.CompileTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/rnvs_tb/common.py", line 510, in test_compile
+    result = compile(self.submission, self.path, compile_log)
+  File "/usr/local/lib/python3.6/dist-packages/rnvs_tb/common.py", line 486, in compile
+    files = os.listdir(path)
+NotADirectoryError: [Errno 20] Not a directory: '/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/helloworld'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

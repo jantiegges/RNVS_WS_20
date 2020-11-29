@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="VMSSH"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="VMSSH">
+				<Option output="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/VMSSH" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 VMSSH"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="VMSSH/fast">
+				<Option output="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/VMSSH" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 VMSSH/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/include/foo.h">
+			<Option target="VMSSH"/>
+		</Unit>
+		<Unit filename="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/main.c">
+			<Option target="VMSSH"/>
+		</Unit>
+		<Unit filename="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/src/foo.c">
+			<Option target="VMSSH"/>
+		</Unit>
+		<Unit filename="/home/tkn/Desktop/block1/tmp/tmp.cI1RnvSMwF/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

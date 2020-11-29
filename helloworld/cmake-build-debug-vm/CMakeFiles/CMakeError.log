@@ -1,0 +1,90 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags:  
+
+The output was:
+Permission denied
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags: -c 
+
+The output was:
+Permission denied
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+Permission denied
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+Permission denied
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags:  
+
+The output was:
+Permission denied
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags: -c 
+
+The output was:
+Permission denied
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+Permission denied
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: / 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+Permission denied
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+Determining if the C compiler works failed with the following output:
+Change Dir: /tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2410d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2410d.dir/build.make CMakeFiles/cmTC_2410d.dir/build
+make[1]: Entering directory '/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2410d.dir/testCCompiler.c.o
+/    -o CMakeFiles/cmTC_2410d.dir/testCCompiler.c.o   -c /tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/CMakeFiles/CMakeTmp/testCCompiler.c
+make[1]: execvp: /: Permission denied
+CMakeFiles/cmTC_2410d.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_2410d.dir/testCCompiler.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_2410d.dir/testCCompiler.c.o] Error 127
+make[1]: Leaving directory '/tmp/tmp.cI1RnvSMwF/cmake-build-debug-vm/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_2410d/fast' failed
+make: *** [cmTC_2410d/fast] Error 2
+
+

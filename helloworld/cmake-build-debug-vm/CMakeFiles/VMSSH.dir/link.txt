@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/VMSSH.dir/main.c.o CMakeFiles/VMSSH.dir/src/foo.c.o  -o VMSSH 

@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_compile (rnvs_tb.common.CompileTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/rnvs_tb/common.py", line 511, in test_compile
+    self.assertIn(result, [MAKEFILE_SUCCESSFUL, CMAKE_SUCCESSFUL])
+AssertionError: -1 not found in [1, 2]
+
+----------------------------------------------------------------------
+Ran 1 test in 0.435s
+
+FAILED (failures=1)
