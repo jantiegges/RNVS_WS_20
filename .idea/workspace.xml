@@ -1,11 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="Block2" targetName="client" />
+      <config projectName="Block2" targetName="server" />
+    </generated>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug-VM" CONFIG_NAME="Debug" TOOLCHAIN_NAME="VM" />
     </configurations>
   </component>
+  <component name="ChangeListManager">
+    <list default="true" id="405c6317-f7e3-4d22-bd8a-570e39676373" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Rechnernetze.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rechnernetze.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/client.c" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/client.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Block2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Block2.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/cmake_install.cmake" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-VM" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kxtOYF1oTnx3gql2h4lECG572w" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="RunManager" selected="CMake Application.client">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="client" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="djxmmx.net 17" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Block2" TARGET_NAME="client" CONFIG_NAME="Debug-VM" RUN_TARGET_PROJECT_NAME="Block2" RUN_TARGET_NAME="client">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Block2" TARGET_NAME="server" CONFIG_NAME="Debug-VM" RUN_TARGET_PROJECT_NAME="Block2" RUN_TARGET_NAME="server">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.client" />
+      <item itemvalue="CMake Application.server" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="405c6317-f7e3-4d22-bd8a-570e39676373" name="Default Changelist" comment="" />
+      <created>1606654039016</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606654039016</updated>
+      <workItem from="1606654040127" duration="254000" />
+      <workItem from="1606654370630" duration="58000" />
+      <workItem from="1606655124452" duration="955000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1200" y="245" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606655229971">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state x="-1200" y="245" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655229971" />
+    <state x="-1200" y="249" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875/-2560.-87.2560.1356@-2560.-87.2560.1356" timestamp="1606654167999" />
+    <state width="753" height="520" key="GridCell.Tab.0.bottom" timestamp="1606655239459">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state width="753" height="520" key="GridCell.Tab.0.bottom/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655239459" />
+    <state width="753" height="520" key="GridCell.Tab.0.center" timestamp="1606655239456">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state width="753" height="520" key="GridCell.Tab.0.center/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655239456" />
+    <state width="753" height="520" key="GridCell.Tab.0.left" timestamp="1606655239455">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state width="753" height="520" key="GridCell.Tab.0.left/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655239455" />
+    <state width="753" height="520" key="GridCell.Tab.0.right" timestamp="1606655239458">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state width="753" height="520" key="GridCell.Tab.0.right/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655239458" />
+    <state x="-1156" y="220" key="SettingsEditor" timestamp="1606655180836">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state x="-1156" y="220" key="SettingsEditor/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655180836" />
+    <state x="-1156" y="226" key="SettingsEditor/0.25.1440.875/-2560.-87.2560.1356@-2560.-87.2560.1356" timestamp="1606654186608" />
   </component>
 </project>
