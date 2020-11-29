@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    // get parameters for addrinfo; works with IPv4 and IPv6; Stream socket
+    // set parameters for addrinfo; works with IPv4 and IPv6; Stream socket
     memset(&hints, 0, sizeof hints);
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
