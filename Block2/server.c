@@ -72,6 +72,7 @@ int readfile(char* path, char*** quotes, int** quotelength, int* numquotes) {
 
 
 int main (int argc, char *argv[]) {
+	// Code from “Beej’s Guide to Network Programming v3.1.5”, Chapter “A Simple Stream Server” was used
 
 
     if (argc != 3) {

@@ -16,6 +16,9 @@
 
 int main(int argc, char *argv[])
 {
+
+    // Code from “Beej’s Guide to Network Programming v3.1.5”, Chapter “A Simple Stream Client” was used
+
     // declare Variables
     int sockfd, numbytes;
     //char *buffer = malloc(MAXDATASIZE* sizeof(char));
