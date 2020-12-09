@@ -1,78 +1,119 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <errno.h>
 #include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
 #include <netdb.h>
-#include <arpa/inet.h>
-#include <sys/wait.h>
 #include <signal.h>
+#include <errno.h>
+#include <sys/wait.h>
+#include <time.h>
 
-#define BACKLOG 1   // how many pending connections queue will hold
-#define MAXDATASIZE 512 // max number of bytes we send at once
+#define BACKLOG 10
 
-#define MAX_NUM_QUOTES 50
-#define MAX_QUOTELENGTH 512
 
-int main(int argc, char *argv[])
+void sigchld_handler(int s)
 {
-    // declare variables
-    int sockfd, new_fd;  // listen on sock_fd, new connection on new_fd
-    struct addrinfo hints, *res, *p;
-    struct sockaddr_storage their_addr; // connector's address information
-    socklen_t sin_size;
-    int yes=1;
-    int status;
+    int saved_errno = errno;
 
-    FILE *fptr;
-    int line_counter = 0;
+    while(waitpid(-1, NULL, WNOHANG) > 0);
+    errno = saved_errno;
+}
 
 
-    // check if enough arguments were given
-    if (argc != 3) {
-        fprintf(stderr,"missing port and filename\n");
-        exit(1);
-    }
+int readfile(char* path, char*** quotes, int** quotelength, int* numquotes) {
 
-    // TODO
-    // check if port number is in range
-    //int port_int = atoi(argv[1]);
+    // temp variables for readout
+    char *line_buffer = NULL;
+    size_t line_buffer_size = 0;
+    ssize_t line_size;
+    FILE *fp;
 
-    // open file in read mode and check for error
-    //fptr = fopen(argv[2], "r");
-    fptr = fopen("../qotd.txt", "r");
-
-    if(fptr == NULL){
-        perror("Server - File did not open: ");
-        exit(1);
-    }
-
-
-    // set parameters for addrinfo; works with IPv4 and IPv6; Stream socket
-    memset(&hints, 0, sizeof hints);
-    hints.ai_family = AF_UNSPEC;
-    hints.ai_socktype = SOCK_STREAM;
-    hints.ai_flags = AI_PASSIVE; // use my IP
-
-    // get addrinfo
-    if ((status = getaddrinfo(NULL, argv[1], &hints, &res)) != 0) {
-        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(status));
+    // open file
+    if ((fp = fopen(path, "r")) == NULL) {
+        perror("fopen: could not read file");
         return 1;
     }
 
-    // loop through all the results and bind to the first we can
-    for(p = res; p != NULL; p = p->ai_next) {
-        if ((sockfd = socket(p->ai_family, p->ai_socktype,
-                             p->ai_protocol)) == -1) {
+    // determine number of lines
+    *numquotes = 0;
+    while(1) {
+        line_size = getline(&line_buffer, &line_buffer_size, fp);
+        if (line_size < 0)
+            break;
+        if (line_buffer[line_size - 1] == '\n')
+            (*numquotes)++;
+    }
+
+    // reinitialize readout
+    fclose(fp);
+    free(line_buffer);
+    line_buffer = NULL;
+    line_buffer_size = 0;
+    fp = fopen(path, "r");
+
+    // allocate memory
+    (*quotelength) = (int *) calloc(*numquotes, sizeof(int));
+    (*quotes) = (char **) calloc(*numquotes, sizeof(char*));
+
+    // copy file content
+    for (int i = 0; i < *numquotes; i++) {
+        line_size = getline(&line_buffer, &line_buffer_size, fp);
+        (*quotelength)[i] = line_size - 1;
+        (*quotes)[i] = (char *) calloc(line_size, sizeof(char));
+        memcpy((*quotes)[i], line_buffer, sizeof(char) * (line_size - 1));
+    }
+
+    // cleanup
+    free(line_buffer);
+    fclose(fp);
+
+
+}
+
+
+int main (int argc, char *argv[]) {
+	// Code from “Beej’s Guide to Network Programming v3.1.5”, Chapter “A Simple Stream Server” was used
+
+
+    if (argc != 3) {
+        fprintf(stderr,"usage: server port path/quotes.txt\n");
+        exit(1);
+    }
+
+    char *port = argv[1];
+    char *path = argv[2];
+    char **quotes;
+    int *quotelength;
+    int numquotes;
+    int sockfd, new_fd;
+    int yes = 1;
+    struct addrinfo hints, *servinfo, *p;
+    struct sigaction sa;
+    struct sockaddr_storage their_addr;
+    socklen_t sin_size;
+    int rv;
+
+    readfile(path, &quotes, &quotelength, &numquotes);
+
+    memset(&hints, 0, sizeof hints);
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_flags = AI_PASSIVE;
+
+
+
+    if ((rv = getaddrinfo(NULL, port, &hints, &servinfo)) != 0) {
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
+        return 1;
+    }
+
+    for (p = servinfo; p != NULL; p = p->ai_next) {
+        if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
             perror("server: socket");
             continue;
         }
 
-        if ((status = setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &yes,
-                       sizeof(int))) == -1) {
+        if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
             perror("setsockopt");
             exit(1);
         }
@@ -82,53 +123,32 @@ int main(int argc, char *argv[])
             perror("server: bind");
             continue;
         }
+
         break;
     }
 
-    freeaddrinfo(res); // all done with this structure
+    freeaddrinfo(servinfo);
 
-    // print error if binding failed
-    if (p == NULL)  {
-        fprintf(stderr, "server: failed to bind\n");
+    if (p == NULL) {
+        fprintf(stderr, "server: failed do bind\n");
         exit(1);
     }
 
-    // listen
-    if ((status =listen(sockfd, BACKLOG)) == -1) {
+    if (listen(sockfd, BACKLOG) == -1) {
         perror("listen");
         exit(1);
     }
 
-    printf("server: waiting for connections...\n");
-
-    //Get number of lines in document
-    char c;
-    for (c = getc(fptr); c != EOF; c = getc(fptr)){
-        if (c == '\n') // Increment count if this character is newline
-            line_counter++;
+    sa.sa_handler = sigchld_handler;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = SA_RESTART;
+    if (sigaction(SIGCHLD, &sa, NULL) == -1) {
+        perror("sigaction");
+        exit(1);
     }
 
-    char quotes[MAX_NUM_QUOTES][MAX_QUOTELENGTH];
-    int quote_length[MAX_QUOTELENGTH];
 
-    int i = 0;
-    int j = 0;
-
-    // saves quotes and length of quotes in array
-    while(fgets(quotes[i], MAX_QUOTELENGTH, fptr)){
-        while(j<MAX_QUOTELENGTH && quotes[i][j] != "\n"){
-            j++;
-        }
-        quote_length[i] = j;
-        i++;
-    }
-
-    line_counter = i;
-
-
-    // always stay ready for connection
     while(1) {
-        // creates a new socket for connecting client
         sin_size = sizeof their_addr;
         new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
         if (new_fd == -1) {
@@ -136,15 +156,27 @@ int main(int argc, char *argv[])
             continue;
         }
 
-        // create random number of a line in document
-        int rand_line = rand() % line_counter;
+        if (!fork()) {
+            close(sockfd);
+            time_t t;
+            t = (unsigned) time(&t);
+            srand(t);
+            int r = rand() % numquotes;
+            if (send(new_fd, quotes[r], quotelength[r], 0) == -1)
+                perror("send");
+            close(new_fd);
+            free(quotelength);
+            for (int i = 0; i < numquotes; i++)
+                free(quotes[i]);
 
-        if ((status = send(new_fd, quotes[rand_line], quote_length[rand_line], 0)) == -1)
-            perror("send");
+            free(quotes);
 
+            exit(0);
+        }
         close(new_fd);
-        exit(0);
-
     }
-    return 0;
+
+
+
+
 }
