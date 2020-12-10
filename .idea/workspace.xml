@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="Block2" targetName="client" />
@@ -12,15 +15,22 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="405c6317-f7e3-4d22-bd8a-570e39676373" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Block3/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Block3/client.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Block3/server.c" afterDir="false" />
+    <list default="true" id="405c6317-f7e3-4d22-bd8a-570e39676373" name="Default Changelist" comment="TODO: handle null-bytes, send random line">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Block2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Block2.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/client.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/CMakeFiles/server.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/cmake-build-debug-vm/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Block2/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/Block2/server.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +51,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1kxtOYF1oTnx3gql2h4lECG572w" />
@@ -104,7 +119,11 @@
       <workItem from="1606675053788" duration="14832000" />
       <workItem from="1606741669866" duration="1272000" />
       <workItem from="1606902311114" duration="2377000" />
-      <workItem from="1607515740658" duration="780000" />
+      <workItem from="1607515740658" duration="965000" />
+      <workItem from="1607516778103" duration="1744000" />
+      <workItem from="1607518780638" duration="809000" />
+      <workItem from="1607519967423" duration="492000" />
+      <workItem from="1607520478588" duration="198000" />
     </task>
     <task id="LOCAL-00001" summary="added comments">
       <created>1606656240500</created>
@@ -127,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606689396608</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TODO: handle null-bytes, send random line">
+      <created>1607516630252</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607516630252</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,20 +166,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="TODO: handle null-bytes, send random line" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1204" y="284" key="#Deployment" timestamp="1607520486837">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state x="-1204" y="284" key="#Deployment/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607520486837" />
     <state x="-1251" y="270" key="#New_File_Extensions" timestamp="1607516423483">
       <screen x="-2560" y="-112" width="2560" height="1440" />
     </state>
     <state x="-1251" y="270" key="#New_File_Extensions/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607516423483" />
-    <state x="529" y="157" width="692" height="520" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606679658401">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="-1081" y="233" key="#SSH_Configurations" timestamp="1607520194490">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
     </state>
+    <state x="-1081" y="233" key="#SSH_Configurations/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607520194490" />
+    <state x="-1620" y="139" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607520341859">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state x="-1620" y="139" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607520341859" />
     <state x="529" y="157" width="692" height="520" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1606679658401" />
     <state x="-1200" y="245" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655229971" />
     <state x="-1200" y="249" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875/-2560.-87.2560.1356@-2560.-87.2560.1356" timestamp="1606654167999" />
-    <state x="352" y="45" key="CommitChangelistDialog2" timestamp="1606689396436">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="-1319" y="180" key="CommitChangelistDialog2" timestamp="1607517262602">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
     </state>
-    <state x="-1319" y="180" key="CommitChangelistDialog2/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606656239808" />
+    <state x="-1319" y="180" key="CommitChangelistDialog2/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607517262602" />
     <state x="352" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1606689396436" />
     <state width="562" height="141" key="GridCell.Tab.0.bottom" timestamp="1606727783873">
       <screen x="-2560" y="-112" width="2560" height="1440" />
@@ -207,29 +242,30 @@
     <state width="615" height="472" key="GridCell.Tab.1.right/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606727213157" />
     <state width="698" height="275" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1606688416185" />
     <state width="615" height="472" key="GridCell.Tab.1.right/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606727783857" />
-    <state x="-1290" y="234" key="MergeDialog" timestamp="1606741752063">
+    <state x="-1290" y="234" key="MergeDialog" timestamp="1607517045509">
       <screen x="-2560" y="-112" width="2560" height="1440" />
     </state>
-    <state x="-1290" y="234" key="MergeDialog/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606741752063" />
-    <state x="-1076" y="373" key="MultipleFileMergeDialog" timestamp="1606741717494">
+    <state x="-1290" y="234" key="MergeDialog/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607517045509" />
+    <state x="-1076" y="373" key="MultipleFileMergeDialog" timestamp="1607517034708">
       <screen x="-2560" y="-112" width="2560" height="1440" />
     </state>
-    <state x="-1076" y="373" key="MultipleFileMergeDialog/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606741717494" />
-    <state x="445" y="121" key="SettingsEditor" timestamp="1606663925499">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="-1076" y="373" key="MultipleFileMergeDialog/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607517034708" />
+    <state x="-1156" y="220" key="SettingsEditor" timestamp="1607520539969">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
     </state>
-    <state x="-1156" y="220" key="SettingsEditor/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606655180836" />
+    <state x="-1156" y="220" key="SettingsEditor/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607520539969" />
     <state x="445" y="121" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606663925499" />
+    <state x="-1156" y="220" key="SettingsEditor/0.25.1440.875/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607520458147" />
     <state x="-1156" y="226" key="SettingsEditor/0.25.1440.875/-2560.-87.2560.1356@-2560.-87.2560.1356" timestamp="1606654186608" />
-    <state x="640" y="286" key="Vcs.Push.Dialog.v2" timestamp="1606689376802">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="-1175" y="345" key="Vcs.Push.Dialog.v2/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606656250026" />
-    <state x="640" y="286" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1606689376802" />
-    <state x="-913" y="526" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606741940448">
+    <state x="-1175" y="345" key="Vcs.Push.Dialog.v2" timestamp="1607517281697">
       <screen x="-2560" y="-112" width="2560" height="1440" />
     </state>
-    <state x="-913" y="526" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1606741940448" />
+    <state x="-1175" y="345" key="Vcs.Push.Dialog.v2/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607517281697" />
+    <state x="640" y="286" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1606689376802" />
+    <state x="-913" y="526" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607517010685">
+      <screen x="-2560" y="-112" width="2560" height="1440" />
+    </state>
+    <state x="-913" y="526" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900/-2560.-112.2560.1440@-2560.-112.2560.1440" timestamp="1607517010685" />
     <state x="836" y="274" width="338" height="531" key="ftp.server.browser" timestamp="1606663223320">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
