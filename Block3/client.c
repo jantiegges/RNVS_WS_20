@@ -228,8 +228,6 @@ int main(int argc, char *argv[])
             // write answer in terminal
             fwrite(val, sizeof(char), header_struct->val_len, stdout);
 
-            printf("%d", header_struct->val_len);
-
             // free reserved variables
             free(body_buf);
             free(body);
