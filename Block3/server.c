@@ -29,10 +29,6 @@ int main (int argc, char *argv[]) {
     }
 
     char *port = argv[1];
-    char *path = argv[2];
-    char **quotes;
-    int *quotelength;
-    int numquotes;
     int sockfd, new_fd;
     int yes = 1;
     struct addrinfo hints, *servinfo, *p;
@@ -105,17 +101,10 @@ int main (int argc, char *argv[]) {
         if (!fork()) {
             close(sockfd);
             time_t t;
-            t = (unsigned) time(&t);
-            srand(t);
-            int r = rand() % numquotes;
-            if (send(new_fd, quotes[r], quotelength[r], 0) == -1)
+            if (send(new_fd, "testi", 5, 0) == -1)
                 perror("send");
             close(new_fd);
-            free(quotelength);
-            for (int i = 0; i < numquotes; i++)
-                free(quotes[i]);
 
-            free(quotes);
 
             exit(0);
         }
