@@ -10,7 +10,7 @@
 
 #include <arpa/inet.h>
 
-#define MAXDATASIZE 16
+#define BUFSIZE 16
 
 typedef struct header{
     uint8_t command_line;
@@ -46,10 +46,11 @@ char* marshalling(int argc, char *argv[], int *packet_size){
     get_command(argv, &command);
 
     // declare parameters for value
-    int buf_size = MAXDATASIZE;
     int read_bytes;
-    uint32_t val_len;
-    char *buf = malloc(MAXDATASIZE * sizeof(char));
+    int counter = 0;
+    int val_len = 0;
+    char *buf = malloc(BUFSIZE * sizeof(char));
+    char *val = malloc((BUFSIZE*2) * sizeof(char));
 
     // set value and length according to command
     // GET OR DELETE
@@ -59,14 +60,27 @@ char* marshalling(int argc, char *argv[], int *packet_size){
         //SET
     }else{
         while(1){
-            read_bytes = fread(buf, sizeof(char), buf_size, stdin);
-            // if read bytes is smaller then buf_size we reach the EOF
-            if(read_bytes < buf_size){
-                val_len = (uint32_t)read_bytes;
+            read_bytes = fread(buf, sizeof(char), BUFSIZE, stdin);
+            // if read bytes is smaller than buf_size we reach the EOF
+            if(read_bytes < BUFSIZE){
+                // set final value and value length
+                val_len += read_bytes;
+                val = realloc(val, val_len*sizeof(char));
+                val_len = (uint32_t)val_len;
+                memcpy(val + counter, buf, read_bytes);
                 break;
             }
-            buf_size = buf_size*2;
-            buf = realloc(buf, buf_size * sizeof(char));
+            // set value length and allocate more storage for value
+            val_len += read_bytes;
+            val = realloc(val, val_len*sizeof(char));
+
+            // set value and reset buffer
+            memcpy(val + counter, buf, read_bytes);
+            memset(buf, 0, BUFSIZE);
+
+            counter += read_bytes;
+
+            //debug comment: richtige value length aber verdrehte ausgabe
         }
     }
 
@@ -86,14 +100,15 @@ char* marshalling(int argc, char *argv[], int *packet_size){
     memcpy(packet+1, &key_len_netorder, 2);
     memcpy(packet + 3, &val_len_netorder,4);
     memcpy(packet + 7, key, key_len);
-    memcpy(packet + 7 + (key_len), buf, val_len);
+    memcpy(packet + 7 + (key_len), val, val_len);
 
     // is not needed anymore
     free(buf);
+    free(val);
 
     // debug code
-    char test[15];
-    memcpy(test, packet, 15);
+    // char test[15];
+    // memcpy(test, packet, 15);
 
     return packet;
 }
@@ -119,7 +134,6 @@ int main(int argc, char *argv[])
     char *packet;
     int packet_size;
 
-    // TODO: adjust übergabeparameter
     packet = marshalling(argc, argv, &packet_size);
 
     // set parameters for addrinfo; works with IPv4 and IPv6; Stream socket
@@ -210,7 +224,11 @@ int main(int argc, char *argv[])
             char *val = malloc(header_struct->val_len * sizeof(char));
             memcpy(key, body, header_struct->key_len);
             memcpy(val, body + header_struct->key_len, header_struct->val_len);
+
+            // write answer in terminal
             fwrite(val, sizeof(char), header_struct->val_len, stdout);
+
+            printf("%d", header_struct->val_len);
 
             // free reserved variables
             free(body_buf);
