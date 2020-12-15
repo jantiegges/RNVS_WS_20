@@ -66,7 +66,6 @@ char* marshalling(int argc, char *argv[], int *packet_size){
                 // set final value and value length
                 val_len += read_bytes;
                 val = realloc(val, val_len*sizeof(char));
-                //val_len = (uint32_t)val_len;
                 memcpy(val + counter, buf, read_bytes);
                 break;
             }
@@ -106,18 +105,12 @@ char* marshalling(int argc, char *argv[], int *packet_size){
     free(buf);
     free(val);
 
-    // debug code
-    // char test[15];
-    // memcpy(test, packet, 15);
-
     return packet;
 }
 
 struct header *unmarshall(unsigned char h[]){
     struct header *header_struct = malloc(sizeof(header));
     header_struct->command_line = h[0];
-    //header_struct->key_len = (header[1]<<8 | header[2]);
-    //header_struct->val_len = (header[3]<<24 | header[4]<<16 | header[5]<<8 | header[6]);
 
     header_struct->key_len = h[1] << 8;
     header_struct->key_len += h[2];
@@ -203,16 +196,12 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    // receive answer from server
-    unsigned char header_recv[7];
-    //char *buf = malloc(sizeof(char));
-    int numbytes = 0;
-    int count_recv = 0;
     // receive header first
+    unsigned char header_recv[7];
+    int numbytes = 0;
     if((numbytes = recv(sockfd, header_recv, 7, 0)) < 0) {
         perror("client: recv");
     }
-
 
 
     header_struct = malloc(sizeof(header));
@@ -223,16 +212,8 @@ int main(int argc, char *argv[])
 
         // only continue receiving if get
         if(header_struct->command_line & (uint8_t)4 ){
-            // receive body
-            uint64_t body_length = header_struct->val_len + header_struct->key_len;
-            char *body_buf = malloc(body_length * sizeof(char));
-            char *body = malloc(body_length * sizeof(char));
-            numbytes = 0;
-            count_recv = 0;
 
-
-
-            // safe key and value
+            // receive key and value
             unsigned char *key = calloc(header_struct->key_len + 1, 1);
             unsigned char *val = calloc(header_struct->val_len + 1, 1);
 
@@ -243,8 +224,6 @@ int main(int argc, char *argv[])
             fwrite(val, sizeof(char), header_struct->val_len, stdout);
 
             // free reserved variables
-            free(body_buf);
-            free(body);
             free(key);
             free(val);
         }
