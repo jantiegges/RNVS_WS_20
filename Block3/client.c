@@ -48,7 +48,7 @@ char* marshalling(int argc, char *argv[], int *packet_size){
     // declare parameters for value
     int read_bytes;
     int counter = 0;
-    int val_len = 0;
+    uint32_t val_len = 0;
     char *buf = malloc(BUFSIZE * sizeof(char));
     char *val = malloc((BUFSIZE*2) * sizeof(char));
 
@@ -66,7 +66,7 @@ char* marshalling(int argc, char *argv[], int *packet_size){
                 // set final value and value length
                 val_len += read_bytes;
                 val = realloc(val, val_len*sizeof(char));
-                val_len = (uint32_t)val_len;
+                //val_len = (uint32_t)val_len;
                 memcpy(val + counter, buf, read_bytes);
                 break;
             }
@@ -80,7 +80,7 @@ char* marshalling(int argc, char *argv[], int *packet_size){
 
             counter += read_bytes;
 
-            //debug comment: richtige value length aber verdrehte ausgabe
+
         }
     }
 
@@ -113,11 +113,37 @@ char* marshalling(int argc, char *argv[], int *packet_size){
     return packet;
 }
 
-struct header *unmarshall(char *header_recv){
+struct header *unmarshall(unsigned char h[]){
     struct header *header_struct = malloc(sizeof(header));
-    header_struct->command_line = header_recv[0];
-    header_struct->key_len = (header_recv[1]<<8 | header_recv[2]);
-    header_struct->val_len = (header_recv[3]<<24 | header_recv[4]<<16 | header_recv[5]<<8 | header_recv[6]);
+    header_struct->command_line = h[0];
+    //header_struct->key_len = (header[1]<<8 | header[2]);
+    //header_struct->val_len = (header[3]<<24 | header[4]<<16 | header[5]<<8 | header[6]);
+
+    header_struct->key_len = h[1] << 8;
+    header_struct->key_len += h[2];
+
+    uint32_t tmp;
+    header_struct->val_len = h[3] << 24;
+    tmp = h[4] << 16;
+    header_struct->val_len += tmp;
+    tmp = h[5] << 8;
+    header_struct->val_len += tmp;
+    header_struct->val_len += h[6];
+}
+
+
+int recvall(int fd, unsigned char* buf, uint32_t len) {
+    int total = 0;
+    int bytesleft = len;
+    int n;
+    while (total < len) {
+        n = recv(fd, buf + total, bytesleft, 0);
+        if (n == -1) { break;}
+        total += n;
+        bytesleft -= n;
+
+    }
+    return n == -1 ? -1 : 0;
 }
 
 int main(int argc, char *argv[])
@@ -178,21 +204,15 @@ int main(int argc, char *argv[])
     }
 
     // receive answer from server
-    char *header_recv = malloc(7 * sizeof(char));
-    char *buf = malloc(sizeof(char));
+    unsigned char header_recv[7];
+    //char *buf = malloc(sizeof(char));
     int numbytes = 0;
     int count_recv = 0;
     // receive header first
-    while((numbytes = recv(sockfd, buf, 1, 0)) != 0){
-        if(numbytes == -1){
-            perror("client: recv");
-        }
-
-        memcpy(header_recv + count_recv, buf, numbytes);
-        count_recv += numbytes;
-        // break if header is received
-        if(count_recv == 7) break;
+    if((numbytes = recv(sockfd, header_recv, 7, 0)) < 0) {
+        perror("client: recv");
     }
+
 
 
     header_struct = malloc(sizeof(header));
@@ -204,28 +224,22 @@ int main(int argc, char *argv[])
         // only continue receiving if get
         if(header_struct->command_line & (uint8_t)4 ){
             // receive body
-            int body_length = header_struct->val_len + header_struct->key_len;
+            uint64_t body_length = header_struct->val_len + header_struct->key_len;
             char *body_buf = malloc(body_length * sizeof(char));
             char *body = malloc(body_length * sizeof(char));
             numbytes = 0;
             count_recv = 0;
 
-            while((numbytes = recv(sockfd, body_buf, body_length, 0)) != 0){
-                if(numbytes == -1){
-                    perror("client: recv");
-                }
-                memcpy(body + count_recv, body_buf, numbytes);
-                count_recv += numbytes;
-                if(count_recv == body_length) break;
-            }
+
 
             // safe key and value
-            char *key = malloc(header_struct->key_len * sizeof(char));
-            char *val = malloc(header_struct->val_len * sizeof(char));
-            memcpy(key, body, header_struct->key_len);
-            memcpy(val, body + header_struct->key_len, header_struct->val_len);
+            unsigned char *key = calloc(header_struct->key_len + 1, 1);
+            unsigned char *val = calloc(header_struct->val_len + 1, 1);
 
-            // write answer in terminal
+            recvall(sockfd, key, (uint32_t) header_struct->key_len);
+            recvall(sockfd, val, header_struct->val_len);
+
+            // write answer in stdout
             fwrite(val, sizeof(char), header_struct->val_len, stdout);
 
             // free reserved variables
@@ -244,8 +258,6 @@ int main(int argc, char *argv[])
     close(sockfd);
 
     // free reserved variables
-    free(buf);
-    free(header_recv);
     free(header_struct);
 
 
