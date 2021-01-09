@@ -6,6 +6,7 @@
 #include <signal.h>
 #include <errno.h>
 #include <sys/wait.h>
+#include <arpa/inet.h>
 #include "hash_functions.h"
 
 #pragma clang diagnostic push
@@ -14,10 +15,13 @@
 #define DEL 0b0001
 #define SET 0b0010
 #define GET 0b0100
+#define CTL 0b10000000
 #define ACK 0b1000
-
+#define RPL 0b10
+#define LKP 0b01
 
 typedef struct package{
+    int from_sock;
     uint8_t ack;
     uint8_t cmd;
     uint16_t key_length;
@@ -25,6 +29,21 @@ typedef struct package{
     char* key;
     void* value;
 }package;
+
+
+typedef struct node{
+    uint16_t id;
+    unsigned long ip;
+    int port;
+}node;
+
+typedef struct ctl_package{
+    uint8_t cmd;
+    uint8_t lkp;
+    uint16_t hash_id;
+    node nd;
+
+}ctl_package;
 
 // print package information to stdout
 void print_pkg(package* p) {
@@ -74,9 +93,8 @@ int recvall(int fd, unsigned char* buf, uint32_t len) {
 int sendall(int s, unsigned char *buf, int *len) {
 
     int total = 0;
-// how many bytes we've sent
 
-    int bytesleft = *len; // how many we have left to send
+    int bytesleft = *len;
     int n;
     while (total < *len) {
         n = send(s, buf + total, bytesleft, 0);
@@ -84,7 +102,7 @@ int sendall(int s, unsigned char *buf, int *len) {
         total += n;
         bytesleft -= n;
     }
-    return n == -1 ? -1 : 0; // return -1 on failure, 0 on success
+    return n == -1 ? -1 : 0; //
 }
 
 
@@ -109,6 +127,27 @@ int get_header(unsigned char h[], package* p){
     return 0;
 };
 
+int ctl_get_package(unsigned char d[], ctl_package* p) {
+    if ((d[0] & LKP) + (d[0] & RPL)/RPL != 1)
+        return -1;
+    p->cmd = d[0] & 0b11;
+
+    p->hash_id = d[1] << 8;
+    p->hash_id += d[2];
+
+    p->nd.id = d[3] << 8;
+    p->nd.id += d[4];
+
+    p->nd.ip += d[5] << 24;
+    p->nd.ip += d[6] << 16;
+    p->nd.ip += d[7] << 8;
+    p->nd.ip += d[8];
+
+    p->nd.port += d[9] << 8;
+    p->nd.port += d[10];
+
+}
+
 void sigchld_handler(int s)
 {
     int saved_errno = errno;
@@ -117,14 +156,63 @@ void sigchld_handler(int s)
     errno = saved_errno;
 }
 
+int set_node(node* node, char* id, char* ip, char* port) {
+    struct in_addr tmp;
+    inet_pton(AF_INET, ip, &tmp);
+    node->id = atoi(id);
+    node->ip = tmp.s_addr;
+    node->port = atoi(port);
+    return 0;
+}
+
+int my_bin(ctl_package p, node self, node pred) {
+    if (self.id > pred.id) {
+        return (int) (p.hash_id > pred.id && p.hash_id <= self.id);
+    } else {
+        return (int) (p.hash_id > pred.id || p.hash_id <= self.id);
+    }
+}
+
+int reply(ctl_package p, node self) {
+
+}
+
+int lookup(ctl_package ctl_p, node succ) {
+    int sockfd = socket(AF_UNSPEC, SOCK_STREAM, 0);
+    connect(sockfd, &(succ.ip), INET_ADDRSTRLEN); // nicht sicher, ob das so geht...
+    unsigned char packet[11];
+    packet[0] = CTL;
+    packet[0] += LKP;
+    packet[1] = ctl_p.hash_id >> 8;
+    packet[2] = ctl_p.hash_id;
+    packet[3] = ctl_p.nd.id >> 8;
+    packet[4] = ctl_p.nd.id;
+    packet[5] = ctl_p.nd.ip >> 24;
+    packet[6] = ctl_p.nd.ip >> 16;
+    packet[7] = ctl_p.nd.ip >> 8;
+    packet[8] = ctl_p.nd.ip;
+    packet[9] = ctl_p.nd.port >> 8;
+    packet[10] = ctl_p.nd.port;
+    send(sockfd, packet, 11, 0);
+    close(sockfd);
+}
+
 int main (int argc, char *argv[]) {
     // Code from “Beej’s Guide to Network Programming v3.1.5”, Chapter “A Simple Stream Server” was used
 
 
-    if (argc != 2) {
-        fprintf(stderr,"usage: server port\n");
+    if (argc != 10) {
+        fprintf(stderr,"usage: peer node_id node_ip node_port pred_id pred_ip pred_port succ_id succ_ip succ_port\n");
         exit(1);
     }
+
+    //parse arguments
+
+    node node_self, node_pred, node_succ;
+    set_node(&node_self, argv[1], argv[2], argv[3]);
+    set_node(&node_pred, argv[4], argv[5], argv[6]);
+    set_node(&node_succ, argv[7], argv[8], argv[9]);
+
 
     hash_item* h = new_hash();
 
@@ -199,37 +287,73 @@ int main (int argc, char *argv[]) {
         }
 
 
-        package* p = calloc(1, sizeof(package));
-        unsigned char buf[7];
+        unsigned char h;
 
-        if (recv(new_fd, buf, 7, 0) < 7)
+        if (recv(new_fd, &h, 1, 0) < 1)
             perror("receive");
 
-        get_header(buf, p);
-        p->key = calloc(p->key_length + 1, 1);
-        p->value = calloc(p->value_length + 1, 1);
-        recvall(new_fd, p->key, (uint32_t) p->key_length);
-        recvall(new_fd, p->value, p->value_length);
-        print_pkg(p);
+        char ctl_msg = (h & CTL) / CTL;
+        if (ctl_msg) {
+            unsigned char buf[11];
+            buf[0] = h;
+            ctl_package p;
 
-        package* s = calloc(sizeof(package), 1);
-        s->cmd = p->cmd;
-        if (p->cmd == GET) {
-            s->key_length = p->key_length;
-            s->key = malloc(s->key_length);
-            memcpy(s->key, p->key, s->key_length);
-        }
-        switch(p->cmd) {
-            case GET: s->ack = get_item(&h, p->key, p->key_length, &(s->value), &(s->value_length)); break;
-            case SET: s->ack = set_item(&h, p->key, p->value, p->key_length, p->value_length); break;
-            case DEL: s->ack = delete_item(&h, p->key, p->key_length); break;
+            if (recv(new_fd, buf + 1, 10, 0) < 10)
+                perror("receive");
+            ctl_get_package(buf, &p);
+            close(new_fd);
+
+            if (p.cmd == LKP) {
+                if (my_bin(p, node_self, node_pred)) {
+                    reply(p, node_self);
+
+                } else {
+                    lookup(p, node_succ);
+
+                }
+            }
+
+
+
+
+        } else {
+
+            unsigned char buf[7];
+            buf[0] = h;
+            package* p = calloc(1, sizeof(package));
+            if (recv(new_fd, buf + 1, 6, 0) < 6)
+                perror("receive");
+
+
+            get_header(buf, p);
+            p->from_sock = new_fd;
+            p->key = calloc(p->key_length + 1, 1);
+            p->value = calloc(p->value_length + 1, 1);
+            recvall(new_fd, p->key, (uint32_t) p->key_length);
+            recvall(new_fd, p->value, p->value_length);
+            print_pkg(p);
+
+            package* s = calloc(sizeof(package), 1);
+            s->cmd = p->cmd;
+            if (p->cmd == GET) {
+                s->key_length = p->key_length;
+                s->key = malloc(s->key_length);
+                memcpy(s->key, p->key, s->key_length);
+            }
+            switch(p->cmd) {
+                case GET: s->ack = get_item(&h, p->key, p->key_length, &(s->value), &(s->value_length)); break;
+                case SET: s->ack = set_item(&h, p->key, p->value, p->key_length, p->value_length); break;
+                case DEL: s->ack = delete_item(&h, p->key, p->key_length); break;
+            }
+
+            unsigned char* packed_data = pack(s);
+            int len = pbytes(s);
+            sendall(new_fd, packed_data, &len);
+            free(packed_data);
+            close(new_fd);
+
         }
 
-        unsigned char* packed_data = pack(s);
-        int len = pbytes(s);
-        sendall(new_fd, packed_data, &len);
-        free(packed_data);
-        close(new_fd);
 
     }
 
