@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm"/>
+				<Option working_dir="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm"/>
+				<Option working_dir="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="client">
-				<Option output="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/client" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm"/>
+				<Option output="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -41,15 +41,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 client"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 client"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="client/fast">
-				<Option output="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/client" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm"/>
+				<Option output="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -61,25 +61,25 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 client/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 client/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm"/>
+				<Option working_dir="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="server">
-				<Option output="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/server" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm"/>
+				<Option output="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -91,15 +91,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 server"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 server"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="server/fast">
-				<Option output="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/server" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm"/>
+				<Option output="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -111,20 +111,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 server/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 server/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/tkn/Desktop/Block2/tmp/Block2/client.c">
+		<Unit filename="/tmp/tmp.epjz4HCGyN/client.c">
 			<Option target="client"/>
 		</Unit>
-		<Unit filename="/home/tkn/Desktop/Block2/tmp/Block2/server.c">
+		<Unit filename="/tmp/tmp.epjz4HCGyN/server.c">
 			<Option target="server"/>
 		</Unit>
-		<Unit filename="/home/tkn/Desktop/Block2/tmp/Block2/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.epjz4HCGyN/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

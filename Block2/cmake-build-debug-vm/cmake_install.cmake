@@ -1,4 +1,4 @@
-# Install script for directory: /home/tkn/Desktop/Block2/tmp/Block2
+# Install script for directory: /tmp/tmp.epjz4HCGyN
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tkn/Desktop/Block2/tmp/Block2/cmake-build-debug-vm/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/tmp/tmp.epjz4HCGyN/cmake-build-debug-vm/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
