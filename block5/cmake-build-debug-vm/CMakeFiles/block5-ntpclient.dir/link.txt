@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/block5-ntpclient.dir/ntpclient.c.o  -o block5-ntpclient 
