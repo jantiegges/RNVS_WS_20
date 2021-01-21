@@ -1,0 +1,3 @@
+/home/tkn/Desktop/block5/tmp/block5/cmake-build-debug-vm/CMakeFiles/rebuild_cache.dir
+/home/tkn/Desktop/block5/tmp/block5/cmake-build-debug-vm/CMakeFiles/ntpclient.dir
+/home/tkn/Desktop/block5/tmp/block5/cmake-build-debug-vm/CMakeFiles/edit_cache.dir
